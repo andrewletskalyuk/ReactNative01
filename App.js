@@ -1,16 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback, //просто клік і все
+  TouchableOpacity, //ефект, що на секунду картинка стає світлою
+  TouchableHighlight, //ефект, що на секунту картинка стає темною
+  SafeAreaView,
+  Image
+} from 'react-native';
 
 export default function App() {
-  let x = 1;
-  console.log("App executed 007");
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.sister}>Моя сім'я - моя фортеця!!!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text>React native</Text>
+      <TouchableHighlight onPress={() => { console.log("Image tapped") }}>
+        <Image
+          source={{
+            width: 200,
+            height: 300,
+            uri: 'https://picsum.photos/200/300'
+          }} />
+      </TouchableHighlight>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -18,11 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sister: {
-    fontSize: 25,
-    color: 'green'
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
